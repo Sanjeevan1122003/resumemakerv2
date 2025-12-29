@@ -167,7 +167,7 @@ const Dashboard = () => {
 
       {/* Quick Actions */}
       <div className="row mb-5">
-        <div className="col-md-6 mb-4">
+        <div className="col-12 col-md-6 mb-4">
           <div
             className="card action-card h-100 cursor-pointer"
             onClick={handleGenerateResume}
