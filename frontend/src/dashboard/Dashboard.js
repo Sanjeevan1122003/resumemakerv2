@@ -40,7 +40,7 @@ const Dashboard = () => {
         const result = await resumeAPI.getResumeDetails()
         setTotalResumes(result.resumes_count)
         setTemplatesUsed(result.templates_count)
-        setLastUpdated(result.latest_date)
+        setLastUpdated(result.latest_date || "00-00-0000")
       }
       catch (err) {
         console.log(err)
