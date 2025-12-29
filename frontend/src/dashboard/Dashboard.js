@@ -187,7 +187,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="col-md-6 mb-4">
+        <div className="col-md-6 mb-4 d-none">
           <div
             className="card action-card h-100 cursor-pointer"
             onClick={handleUploadResume}
