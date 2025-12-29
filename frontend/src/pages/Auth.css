@@ -1,0 +1,168 @@
+.input-group-lg {
+  --input-lg-padding-y: 0.5rem;
+  --input-lg-padding-x: 1rem;
+  --input-lg-font-size: 0.95rem;
+  --input-lg-border-radius: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .input-group-lg {
+    --input-lg-padding-y: 0.45rem;
+    --input-lg-padding-x: 0.875rem;
+    --input-lg-font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .input-group-lg {
+    --input-lg-padding-y: 0.4rem;
+    --input-lg-padding-x: 0.75rem;
+    --input-lg-font-size: 0.875rem;
+  }
+
+  .btn {
+    --btn-padding-y: 0.4rem;
+    --btn-padding-x: 1rem;
+    --btn-font-size: 0.875rem;
+  }
+}
+
+/* Apply custom properties */
+.form-control-lg {
+  padding: var(--input-lg-padding-y) var(--input-lg-padding-x);
+  font-size: var(--input-lg-font-size);
+}
+
+.btn {
+  padding: var(--btn-padding-y, 0.5rem) var(--btn-padding-x, 1rem);
+  font-size: var(--btn-font-size, 1rem);
+}
+
+/* Responsive border-radius */
+.rounded-4 {
+  border-radius: 1rem !important;
+}
+
+@media (max-width: 768px) {
+  .rounded-4 {
+    border-radius: 0.875rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .rounded-4 {
+    border-radius: 0.75rem !important;
+  }
+}
+
+/* Card padding adjustments */
+.card-body {
+  padding: 1.5rem !important;
+}
+
+@media (min-width: 576px) {
+  .card-body {
+    padding: 2rem !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .card-body {
+    padding: 2.5rem !important;
+  }
+}
+
+@media (min-width: 992px) {
+  .card-body {
+    padding: 3rem !important;
+  }
+}
+
+/* Responsive margins */
+.mb-responsive-1 {
+  margin-bottom: 0.5rem !important;
+}
+
+@media (min-width: 576px) {
+  .mb-responsive-1 {
+    margin-bottom: 0.75rem !important;
+  }
+}
+
+@media (min-width: 768px) {
+  .mb-responsive-1 {
+    margin-bottom: 1rem !important;
+  }
+}
+
+/* Form control focus states */
+.form-control:focus {
+  border-color: #495057 !important;
+  box-shadow: 0 0 0 0.2rem rgba(73, 80, 87, 0.15) !important;
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+
+/* Button hover effects */
+.btn-dark:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+}
+
+.btn-outline-dark:hover {
+  transform: translateY(-1px);
+  transition: all 0.2s ease;
+}
+
+/* Input group button styling */
+.input-group .btn-white {
+  background-color: #fff;
+  transition: all 0.2s ease;
+}
+
+.input-group .btn-white:hover {
+  background-color: #f8f9fa;
+}
+
+/* Enhanced mobile experience */
+@media (max-width: 576px) {
+  .auth-page {
+    padding: 1rem 0.5rem !important;
+  }
+
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  h1,
+  h2,
+  h3 {
+    margin-bottom: 0.75rem !important;
+  }
+}
+
+/* Touch-friendly tap targets on mobile */
+@media (max-width: 768px) {
+
+  .btn,
+  .form-control {
+    min-height: 34px;
+    /* Minimum touch target size */
+  }
+  .form-check-input{
+    height: 16px !important;
+    width: 16px !important;
+  }
+}
+
+.form-check-input:checked {
+  background-color: #212529 !important;
+  border-color: #212529 !important;
+}
+
+.form-check-input:focus {
+  border-color: var(--dark-color);
+  box-shadow: 0 0 0 0.2rem rgba(40, 40, 41, 0.25);
+}

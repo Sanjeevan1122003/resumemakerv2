@@ -1,0 +1,318 @@
+/* src/components/ResumePreview.css */
+.resume-preview {
+  color: #333;
+  line-height: 1.6;
+  width: auto;
+}
+
+.resume-template {
+  min-height: 800px;
+  padding: 32px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: auto;
+  background-color: #000000;
+}
+
+
+template {
+  width: 745px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  font-size: 14px;
+}
+
+.template p,
+.template li {
+  word-break: break-word;
+}
+
+/* ==================== */
+/* TEMPLATE 1 - ATS FRIENDLY */
+/* ==================== */
+.template1 {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #000000;
+  font-size: 14px;
+}
+
+/* Allow text to wrap correctly */
+
+
+/* Remove default UL padding */
+.template1 ul {
+  margin: 4px 0 0 16px;
+  padding: 0;
+}
+
+/* ==================== */
+/* TEMPLATE 2 */
+/* ==================== */
+.template2 {
+  color: #000000;
+  font-size: 15px;
+}
+
+/* ==================== */
+/* TEMPLATE 3 */
+/* ==================== */
+.template3 {
+  font-family: Calibri, "Trebuchet MS", sans-serif;
+  font-size: 15px;
+}
+
+/* ==================== */
+/* TEMPLATE 4 */
+/* ==================== */
+.template4 {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+}
+
+/* ==================== */
+/* TEMPLATE 5 */
+/* ==================== */
+.template5 {
+  font-family: "Times New Roman", Times, serif;
+
+}
+
+/* ==================== */
+/* TEMPLATE 6 */
+/* ==================== */
+.template6 {
+  font-family: Lato, "Trebuchet MS", sans-serif;
+}
+
+/* ==================== */
+/* TEMPLATE 7 */
+/* ==================== */
+.template7 {
+  font-family: "Open Sans", "Helvetica Neue", sans-serif;
+
+}
+
+/* ==================== */
+/* PRINT STYLES */
+/* ==================== */
+@media print {
+  .resume-template {
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  /* ATS Print Optimization */
+  .template {
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  .template .section {
+    page-break-inside: avoid;
+  }
+
+  .template a {
+    color: #000000 !important;
+    text-decoration: none !important;
+  }
+
+  .template .project-link::after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    color: #666666;
+  }
+}
+
+/* ==================== */
+/* RESPONSIVE STYLES */
+/* ==================== */
+@media (max-width: 768px) {
+  .resume-template {
+    padding: 1rem;
+  }
+
+}
+
+/* ==================== */
+/* FULLSCREEN MODAL STYLES */
+/* ==================== */
+.fullscreen-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.46);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.close-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.modal-content {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.fullscreen-preview {
+  background: rgb(255, 255, 255);
+  width: 850px;
+  padding: 30px 0px;
+  padding-left: 20px;
+  min-height: 90vh;
+  box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+  overflow-y: auto;
+  overflow-x: auto;
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Fullscreen resume styling */
+.resume-preview.fullscreen-mode {
+  padding: 0;
+  box-shadow: none;
+  border: none;
+}
+
+.resume-template.fullscreen-template {
+  font-size: 1.1em;
+}
+
+.resume-template.fullscreen-template .resume-name {
+  font-size: 2.5em;
+}
+
+.resume-template.fullscreen-template .section-title {
+  font-size: 1.8em;
+}
+
+.resume-template.fullscreen-template h4 {
+  font-size: 1.4em;
+}
+
+.resume-template.fullscreen-template p {
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+.modal-footer {
+  padding: 1rem 2rem;
+  background: rgba(255, 255, 255, 0);
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: -10px;
+}
+
+.modal-footer .btn {
+  padding: 0.75rem 2rem;
+  font-weight: 500;
+  font-size: 1.1em;
+}
+
+/* Fullscreen preview button */
+.btn-outline-primary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+}
+
+
+
+/* Optional: Add some scrollbar styling */
+.fullscreen-preview::-webkit-scrollbar {
+  width: 8px;
+}
+
+.fullscreen-preview::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.fullscreen-preview::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.fullscreen-preview::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* ATS Specific Classes */
+.template1 .d-flex {
+  display: block !important;
+}
+
+.template1 .justify-content-between {
+  display: block !important;
+}
+
+/* Remove conflicting styles for ATS */
+.template1 .bg-dark,
+.template1 .text-light {
+  background: #ffffff !important;
+  color: #000000 !important;
+}

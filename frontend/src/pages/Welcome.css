@@ -1,0 +1,223 @@
+/* src/pages/Welcome.css */
+.welcome-page {
+  overflow-x: hidden;
+}
+
+.hero-section {
+  padding: 4rem 0;
+}
+
+.resume-preview-card {
+  transform: perspective(1000px) rotateY(-5deg);
+  transition: transform 0.3s ease;
+  background: white;
+  border: none;
+  max-width: 100%;
+  height: auto;
+  margin-top: -60px;
+}
+
+.resume-preview-card:hover {
+  transform: perspective(1000px) rotateY(0deg);
+}
+
+.feature-item {
+  background: white;
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Tablet landscape specific styles for title visibility */
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  .navbar-brand span.d-md-block {
+    display: block !important;
+    font-size: 1.25rem !important;
+  }
+  
+  .hero-section {
+    padding: 2rem 0 !important;
+  }
+  
+  .resume-preview-card {
+    transform: perspective(1000px) rotateY(-3deg);
+    max-width: 95%;
+    margin: 0 auto;
+  }
+  
+  .display-4 {
+    font-size: 2.75rem !important;
+  }
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .hero-section {
+    padding: 2rem 0 !important;
+  }
+  
+  .display-4 {
+    font-size: 2.25rem !important;
+  }
+  
+  .resume-preview-card {
+    transform: none;
+    margin-top: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  .resume-preview-card:hover {
+    transform: none;
+  }
+  
+  .navbar {
+    padding-top: 0.75rem !important;
+    padding-bottom: 0.75rem !important;
+  }
+}
+
+/* Small mobile adjustments */
+@media (max-width: 576px) {
+  .hero-section {
+    padding: 1.5rem 0 !important;
+  }
+  
+  .display-4 {
+    font-size: 1.75rem !important;
+  }
+  
+  .resume-preview-card {
+    margin-top: 1.5rem;
+  }
+  
+  .feature-item {
+    padding: 0.5rem 0.75rem;
+  }
+  
+  /* Ensure buttons are touch-friendly */
+  .btn {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: clamp(0.875rem, 3.5vw, 1rem) !important;
+  }
+}
+
+/* Large desktop adjustments */
+@media (min-width: 1400px) {
+  .container, .container-lg {
+    max-width: 1320px;
+  }
+  
+  .hero-section {
+    padding: 5rem 0 !important;
+  }
+  
+  .resume-preview-card {
+    transform: perspective(1200px) rotateY(-8deg);
+  }
+}
+
+/* Prevent text from becoming too small on very small screens */
+@media (max-width: 360px) {
+  html {
+    font-size: 14px;
+  }
+  
+  .display-4 {
+    font-size: 1.5rem !important;
+  }
+  
+  .lead {
+    font-size: 1rem !important;
+  }
+}
+
+/* Adjust padding for extra small screens */
+@media (max-width: 320px) {
+  .container {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+  
+  .btn {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+    font-size: 0.875rem !important;
+  }
+  
+  .feature-item {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Animation for page load */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-section .row > div {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.hero-section .col-lg-6:last-child {
+  animation-delay: 0.2s;
+}
+
+/* Smooth transitions for all interactive elements */
+.navbar-brand,
+.btn,
+.feature-item,
+.resume-preview-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Improve button hover effects */
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.25);
+}
+
+.btn-outline-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.15);
+}
+
+/* Ensure responsive typography with fluid scaling */
+h1, h2, h3, h4, h5, h6, p, span, .btn {
+  line-height: 1.4;
+}
+
+/* Print styles */
+@media print {
+  .welcome-page {
+    background: white !important;
+  }
+  
+  .resume-preview-card {
+    transform: none !important;
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+  }
+  
+  .navbar,
+  footer,
+  .btn {
+    display: none !important;
+  }
+}

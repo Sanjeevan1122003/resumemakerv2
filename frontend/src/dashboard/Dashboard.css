@@ -1,0 +1,419 @@
+/* src/dashboard/Dashboard.css */
+.dashboard-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f5f7fb;
+}
+
+/* Sidebar Styles - Hidden on mobile/tablet */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 250px;
+  background: white;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.closed {
+  width: 70px;
+}
+
+.sidebar-header {
+  padding: 1.5rem;
+  border-bottom: 1px solid #dee2e6;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sidebar-toggle {
+  padding: 0;
+  color: var(--dark-color);
+  font-size: 1.25rem;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-icon {
+  color: var(--dark-color);
+  font-size: 1.5rem;
+}
+
+.logo-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--dark-color);
+  margin: 0;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  color: #6c757d;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  gap: 1rem;
+}
+
+.nav-link:hover {
+  background-color: #f8f9fa;
+  color: var(--dark-color);
+}
+
+.nav-link.active {
+  background-color: rgba(67, 97, 238, 0.1);
+  color: var(--dark-color);
+  border-right: 3px solid var(--dark-color);
+}
+
+.nav-icon {
+  font-size: 1.25rem;
+  min-width: 24px;
+  text-align: center;
+}
+
+.nav-label {
+  font-weight: 500;
+}
+
+.sidebar-footer {
+  border-top: 1px solid #dee2e6;
+  padding: 1rem;
+}
+
+.user-profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  padding: 0.75rem;
+  background: none;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: none;
+  transition: background-color 0.3s ease;
+  margin-bottom: 0.5rem;
+}
+
+.user-profile-btn:hover {
+  cursor: not-allowed;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--dark-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+  position: relative;
+  margin-left: -15px;
+}
+
+/* Optional: Add a subtle border for better definition */
+.user-avatar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  pointer-events: none;
+}
+
+/* Ensure the icon is perfectly centered and scaled */
+.user-avatar svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Alternative: If using Font Awesome classes */
+.user-avatar .fa-user {
+  font-size: 1.1rem;
+}
+
+.user-info {
+  text-align: left;
+  flex: 1;
+  overflow: hidden;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-transform: capitalize;
+}
+
+.user-email {
+  font-size: 0.8rem;
+  color: #6c757d;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.logout-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.5rem;
+  background-color: var(--dark-color);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: var(--dark-color);
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  margin-left: 250px;
+  transition: margin-left 0.3s ease;
+  min-height: 100vh;
+}
+
+.main-content.sidebar-closed {
+  margin-left: 70px;
+}
+
+.content-wrapper {
+  padding: 2rem;
+}
+
+.fullscreen-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.46);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* ====================== */
+/* MOBILE BOTTOM NAVIGATION */
+/* ====================== */
+
+.mobile-bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+  border-top: 1px solid #e9ecef;
+  padding: 0.5rem 0;
+  z-index: 1050;
+  /* Increased from 1000 to be above modal backdrop */
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  height: 60px;
+}
+
+.mobile-nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  color: #6c757d;
+  text-decoration: none;
+  font-size: 0.7rem;
+  transition: all 0.2s ease;
+  min-height: 50px;
+  cursor: pointer;
+  position: relative;
+  /* Added for z-index context */
+  z-index: 1051;
+  /* Ensure links are above the nav bar */
+}
+
+.mobile-nav-link.active {
+  color: var(--dark-color);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.mobile-nav-icon {
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+  position: relative;
+  z-index: 1052;
+  /* Ensure icons are clickable */
+}
+
+.mobile-nav-link.active {
+  color: var(--dark-color);
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.mobile-nav-icon {
+  font-size: 1.2rem;
+  margin-bottom: 0.2rem;
+}
+
+.mobile-nav-link span:not(.mobile-nav-icon) {
+  display: none;
+}
+
+/* ====================== */
+/* RESPONSIVE STYLES - UPDATED */
+/* ====================== */
+
+/* Mobile & Tablet (up to 1024px) */
+@media (max-width: 1024px) {
+
+  /* Hide desktop sidebar completely on mobile/tablet */
+  .sidebar {
+    display: none !important;
+    transform: translateX(-100%);
+  }
+
+  /* Adjust main content for mobile/tablet */
+  .main-content {
+    margin-left: 0 !important;
+    width: 100%;
+    margin-bottom: 60px;
+    /* Make space for bottom nav */
+  }
+
+  .main-content.sidebar-open,
+  .main-content.sidebar-closed {
+    margin-left: 0 !important;
+  }
+
+  .content-wrapper {
+    padding: 1.5rem;
+  }
+
+  /* Show mobile bottom nav on mobile/tablet */
+  .mobile-bottom-nav {
+    display: flex !important;
+  }
+}
+
+/* Tablet landscape specific adjustments */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: landscape) {
+  .mobile-bottom-nav {
+    height: 55px;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+  }
+
+  .mobile-nav-icon {
+    font-size: 1.1rem;
+    margin-bottom: 0.1rem;
+  }
+
+  .main-content {
+    margin-bottom: 55px;
+  }
+}
+
+/* Desktop (1025px and above) */
+@media (min-width: 1025px) {
+
+  /* Hide mobile bottom nav on desktop */
+  .mobile-bottom-nav {
+    display: none !important;
+  }
+
+  /* Ensure sidebar is visible on desktop */
+  .sidebar {
+    display: flex !important;
+    transform: translateX(0) !important;
+  }
+
+  /* Adjust main content for desktop */
+  .main-content {
+    margin-bottom: 0;
+  }
+}
+
+/* Modal Styles */
+.account-modal .avatar-circle {
+  width: 80px;
+  height: 80px;
+  background: var(--dark-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.account-modal .form-control.bg-light {
+  border: 1px solid #dee2e6;
+  padding: 0.375rem 0.75rem;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+}
+
+/* Add safe area support for notched phones */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .mobile-bottom-nav {
+    padding-bottom: calc(0.5rem + env(safe-area-inset-bottom));
+    height: calc(60px + env(safe-area-inset-bottom));
+  }
+
+  .main-content {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Tablet portrait specific padding */
+@media (min-width: 769px) and (max-width: 1024px) and (orientation: portrait) {
+  .content-wrapper {
+    padding: 1.75rem;
+  }
+}

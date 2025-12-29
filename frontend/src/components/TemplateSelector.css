@@ -1,0 +1,51 @@
+/* Style for select dropdown */
+.custom-select {
+  background-color: #fff;
+  border: 1px solid #dee2e6;
+}
+
+.custom-select:focus {
+  border-color: #000;
+  box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.1);
+}
+
+/* Style for dropdown options */
+.custom-select option {
+  background-color: #fff;
+  color: #212529;
+  padding: 8px;
+}
+
+/* Hover effect for options */
+.custom-select option:hover,
+.custom-select option:focus,
+.custom-select option:active {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+/* Selected option styling */
+.custom-select option:checked {
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+/* For Firefox */
+@-moz-document url-prefix() {
+  .custom-select option {
+    background-color: white;
+  }
+
+  .custom-select option:hover,
+  .custom-select option:focus,
+  .custom-select option:active {
+    background-color: #000 !important;
+    color: #fff !important;
+  }
+}
+
+/* For Webkit browsers (Chrome, Safari, Edge) */
+.custom-select option:hover {
+  background-color: #000 !important;
+  color: #fff !important;
+}

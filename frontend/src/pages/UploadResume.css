@@ -1,0 +1,102 @@
+/* src/pages/UploadResume.css */
+.upload-resume-page {
+  background: linear-gradient(135deg, #f5f7fb 0%, #e4edf5 100%);
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.upload-section {
+  background: white;
+  border: 2px dashed #dee2e6;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+}
+
+.upload-section:hover {
+  border-color: var(--primary-color);
+  background-color: rgba(67, 97, 238, 0.05);
+}
+
+.upload-icon {
+  width: 120px;
+  height: 120px;
+  background: rgba(67, 97, 238, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.file-input-container .btn {
+  padding: 0.75rem 2rem;
+  border-radius: var(--border-radius);
+}
+
+.file-info {
+  background: #f8f9fa;
+  padding: 0.75rem;
+  border-radius: var(--border-radius);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.format-item {
+  display: flex;
+  align-items: center;
+  background: #f8f9fa;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+}
+
+.extracted-data-section .card {
+  border: 1px solid #dee2e6;
+  transition: transform 0.3s ease;
+}
+
+.extracted-data-section .card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.icon-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 1.5rem;
+}
+
+.feature-item {
+  transition: all 0.3s ease;
+  border-radius: var(--border-radius);
+}
+
+.feature-item:hover {
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+  .upload-resume-page {
+    padding: 1rem;
+  }
+  
+  .card-body {
+    padding: 2rem !important;
+  }
+  
+  .upload-icon {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .upload-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+}
